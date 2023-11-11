@@ -11,7 +11,7 @@
 <children>
 <Label layoutX="218.0" layoutY="25.0" text="This is a placeholder for HOME" />
 <Button layoutX="122.0" layoutY="187.0" mnemonicParsing="false" onAction="#goToInputData" text="Input Data" />
-<Button layoutX="351.0" layoutY="187.0" mnemonicParsing="false" onAction="#goToPlanningPokerThing" text="Do a Planning Poker thing" />
+<Button layoutX="351.0" layoutY="187.0" mnemonicParsing="false" onAction="#goToPlanningPokerThing" text="Do a Planning Poker thing." />
 <Button layoutX="487.0" layoutY="21.0" mnemonicParsing="false" onAction="#goToLogIn" text="Log Out" />
 </children>
 </AnchorPane>
