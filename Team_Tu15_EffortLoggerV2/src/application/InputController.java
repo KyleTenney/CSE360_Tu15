@@ -1,7 +1,7 @@
 /*
  * Author: Kyle Tenney
  * Title: Input
- * Last update: 11/5/2023   4:26 PM
+ * Last update: 11/12/2023  3:33 PM
  * 
  * Description: This is the controller to be in charge of taking the information
  * 		from the Input_page and putting that in the file.
@@ -87,11 +87,19 @@ public class InputController {
     // Make sure that all input is good and safe
     private boolean checkIsSafe(boolean isSafe) {
     	try {
-			Integer.valueOf(weight.getText());
+			int i = Integer.valueOf(weight.getText());
+			if(i == 0 || i == 1 || i == 2 || i == 3 || i == 4 ) {
+				
+			}
+			else {
+				isSafe = false;
+				weight.clear();
+				weightErrorDisplay.setText("Make sure that your weight 0, 1, 2, 3 or 4.");
+			}
 		} catch (Exception w) {
 			isSafe = false;
 			weight.clear();
-			weightErrorDisplay.setText("Make sure that your weight is an integer.");
+			weightErrorDisplay.setText("Make sure that your weight 0, 1, 2, 3 or 4.");
 		}
 		try {
 			LocalDateTime.parse(timeStart.getText());
