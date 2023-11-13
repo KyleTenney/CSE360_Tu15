@@ -3,7 +3,7 @@
  * Title: Login
  * Last update: 11/1/2023     2:17 PM
  * 
- * Description:
+ * Description: This controller makes sure the input is correct and then leads the user to the home page
  */
 
 package application;

@@ -4,9 +4,8 @@
  * Last update: 11/4/2023   5:07 PM
  * 
  * Description: This is a class to hold the information of a single effort activity.
- *  This will be used in testing the prototype:Data_Input and then used in the final EffortLogger
- *  For now the timeStart and timeEnd are strings to make it easier for testing but later 
- *  	they will be LocalDateTime variables in order to measure time between them. 
+ *  This will be used to hold and format the data to be put in the file.
+ *  The fullLine is what is written in the file.
  *  
  */
 package application;
