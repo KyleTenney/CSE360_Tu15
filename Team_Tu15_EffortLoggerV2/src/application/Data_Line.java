@@ -1,12 +1,10 @@
 /*
  * Author: Kyle Tenney
  * Title: Data_Line
- * Last update: 11/4/2023   5:07 PM
+ * Last update: 11/19   10:00 PM
  * 
  * Description: This is a class to hold the information of a single effort activity.
- *  This will be used in testing the prototype:Data_Input and then used in the final EffortLogger
- *  For now the timeStart and timeEnd are strings to make it easier for testing but later 
- *  	they will be LocalDateTime variables in order to measure time between them. 
+ *  This will be in charge of managing the layout of the file and the data being put in
  *  
  */
 package application;
@@ -41,14 +39,21 @@ public class Data_Line {
 		this.weight = weight;
 		this.setFullLine();
 	}
+	
 	// This constructor is to make the object as soon as the start button is selected 
 	// (Used in final EffortLogger V2)
-	/*
 	public Data_Line(LocalDateTime timeStart) {
-		this.timeStart = timeStart;
+		this.timeStart = timeStart.toString();
+		this.timeEnd = "";
+		this.project = "";
+		this.lifeCycleStep = "";
+		this.effortCatagory = "";
+		this.subSection = "";
+		this.description = "";
+		this.weight = 9;
 		this.setFullLine();
 	}
-	*/
+	
 	// This constructor is for when taking a line from the file and filling out the rest of the data
 	public Data_Line(String fullLine) {
 		this.fullLine = fullLine;
@@ -170,6 +175,7 @@ public class Data_Line {
 		try {
 			  FileWriter myWriter = new FileWriter("Team_Tu15_Input_Testing.txt", true);
 		      myWriter.write(this.fullLine + "\n");
+		      myWriter.flush();  //Make sure to write to the file before closing
 		      myWriter.close();
 		      //System.out.println("Successfully wrote to the file.\n");
 		    } catch (IOException e) {

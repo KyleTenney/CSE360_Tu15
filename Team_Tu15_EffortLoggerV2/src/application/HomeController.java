@@ -34,6 +34,12 @@ public class HomeController {
     	Main m = new Main();
     	m.changeScene("LoginScreen.fxml");
     }
+    
+    @FXML
+    void goToEditData(ActionEvent event) throws IOException {
+    	Main m = new Main();
+    	m.changeScene("EditDataPage.fxml");
+    }
 }
 
 

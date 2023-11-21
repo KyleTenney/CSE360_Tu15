@@ -1,7 +1,7 @@
 /*
 * Author: Kyle Tenney
 * Title: PlanningPokerCrontroller
-* Last update: 11/4/2023 5:13 PM
+* Last update: 11/20/2023   9:00 PM
 *
 * Description: This is the controller for the PlanningPokerPage. It collects what was inputed from the user
 * 	to narrow down what activitys to look at and then calculates the average weight and time of all of those.
@@ -49,6 +49,7 @@ void calculate(ActionEvent event) throws FileNotFoundException {
 	averageWeightDisplay.setText("The average weight was: " + information[1]);
 	averageTimeDisplay.setText("The average time was: " + information[2] + " years, " + information[3] + " months, " + information[4] + " days, " + information[5] + " hours, " + information[6] + " minutes, and "+ information[7] + " seconds");
 	
+	cardDisplay.setText("Recomened importance is " + Math.round(information[1]));
 }
 @FXML
 void goToHome(ActionEvent event) throws IOException {
@@ -77,21 +78,29 @@ private static double[] getAverages(String proj, String lCS, String effort, Stri
 	
 	Scanner scan = new Scanner(myFile);
 		
-		while(scan.hasNextLine()) {
-			Data_Line dataFromFile = new Data_Line(scan.nextLine());
-			if(dataFromFile.getProject().equals(proj) || proj.equals("")) {
-				if(dataFromFile.getLifeCycleStep().equals(lCS) || lCS.equals("")) {
-					if(dataFromFile.getEffortCatagory().equals(effort) || effort.equals("")) {
-						if(dataFromFile.getSubSection().equals(subS) || subS.equals("")) {
-							amount++;
-							sumWeight = sumWeight + dataFromFile.getWeight();
-							sumTime = sumTime + LocalDateTime.parse(dataFromFile.getTimeStart()).until(LocalDateTime.parse(dataFromFile.getTimeEnd()), ChronoUnit.SECONDS);
+	// Narrow down the data from fields chosen from the user
+	while(scan.hasNextLine()) {
+		Data_Line dataFromFile = new Data_Line(scan.nextLine());
+		if(dataFromFile.getProject().equals(proj) || proj.equals("")) {
+			if(dataFromFile.getLifeCycleStep().equals(lCS) || lCS.equals("")) {
+				if(dataFromFile.getEffortCatagory().equals(effort) || effort.equals("")) {
+					if(dataFromFile.getSubSection().equals(subS) || subS.equals("")) {
+						if(dataFromFile.getWeight() != 9) {
+							amount++; // Update how many activities found
+							sumWeight = sumWeight + dataFromFile.getWeight(); // Update the sum of the weights
+							try{
+								sumTime = sumTime + LocalDateTime.parse(dataFromFile.getTimeStart()).until(LocalDateTime.parse(dataFromFile.getTimeEnd()), ChronoUnit.SECONDS); // Update how many seconds between activities
+							}catch(Exception e) {
+								
+							}
 						}
 					}
 				}
 			}
-			
 		}
+		
+	}
+	scan.close();
 	try {
 			seconds = sumTime/amount;
 			averageWeight = sumWeight/amount;
@@ -111,7 +120,7 @@ private static double[] getAverages(String proj, String lCS, String effort, Stri
 	months = months%12;
 	
 	
-		information[0] = amount;
+	information[0] = amount;
 	information[1] = Math.round(averageWeight * 100.0)/100.0;
 	information[7] = Math.round(seconds * 100.0)/100.0;
 	information[6] = Math.round(minutes * 100.0)/100.0;
@@ -125,4 +134,3 @@ private static double[] getAverages(String proj, String lCS, String effort, Stri
 	return information;
 }
 }
-
