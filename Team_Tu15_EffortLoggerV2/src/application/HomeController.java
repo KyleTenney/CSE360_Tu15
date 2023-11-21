@@ -4,7 +4,7 @@
  * Last update: 11/4/2023   5:12 PM
  * 
  * Description: This is the controller to control what the buttons do. 
- * 		For now it can choose to input data and eventually go to a planning poker thing
+ * 		For now it can choose to input data, calculate averages, or go back to log in page
  *  
  */
 

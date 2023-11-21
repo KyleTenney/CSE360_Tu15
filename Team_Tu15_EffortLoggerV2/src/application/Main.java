@@ -3,7 +3,7 @@
  * Title: Login
  * Last update: 11/4/2023   5:10 PM
  * 
- * Description:
+ * Description: This main controller starts the user on the log in page and holds a method to change scenes 
  */
 
 package application;

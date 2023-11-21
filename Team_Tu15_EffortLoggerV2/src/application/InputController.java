@@ -1,7 +1,11 @@
 /*
  * Author: Kyle Tenney
  * Title: Input
+<<<<<<< HEAD
  * Last update: 11/20/2023  9:00 PM
+=======
+ * Last update: 11/12/2023  3:33 PM
+>>>>>>> refs/remotes/origin/master
  * 
  * Description: This is the controller to be in charge of taking the information
  * 		from the Input_page and putting that in the file.
@@ -80,6 +84,10 @@ public class InputController {
     	try {
 			int i = Integer.valueOf(weight.getText());
 			if(i == 0 || i == 1 || i == 2 || i == 3 || i == 4 ) {
+<<<<<<< HEAD
+=======
+				
+>>>>>>> refs/remotes/origin/master
 			}
 			else {
 				isSafe = false;
