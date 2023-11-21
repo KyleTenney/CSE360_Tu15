@@ -16,6 +16,6 @@
 <Button layoutX="264.0" layoutY="121.0" mnemonicParsing="false" onAction="#goToInputData" text="Input Data" />
 <Button layoutX="194.0" layoutY="306.0" mnemonicParsing="false" onAction="#goToPlanningPokerThing" text="Calculate averages for PlanningPoker" />
 <Button layoutX="487.0" layoutY="21.0" mnemonicParsing="false" onAction="#goToLogIn" text="Log Out" />
-      <Button layoutX="243.0" layoutY="187.0" mnemonicParsing="false" onAction="#goToEditData" text="Edit or delete data" />
+<Button layoutX="243.0" layoutY="187.0" mnemonicParsing="false" onAction="#goToEditData" text="Edit or delete data" />
 </children>
 </AnchorPane>

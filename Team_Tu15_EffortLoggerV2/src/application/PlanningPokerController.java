@@ -1,11 +1,7 @@
 /*
 * Author: Kyle Tenney
 * Title: PlanningPokerCrontroller
-<<<<<<< HEAD
 * Last update: 11/20/2023   9:00 PM
-=======
-* Last update: 11/12/2023   3:33 PM
->>>>>>> refs/remotes/origin/master
 *
 * Description: This is the controller for the PlanningPokerPage. It collects what was inputed from the user
 * 	to narrow down what activitys to look at and then calculates the average weight and time of all of those.
@@ -22,10 +18,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+
 public class PlanningPokerController {
-	@FXML
+@FXML
 private Label amountOfData;
-	
 @FXML
 private Label averageTimeDisplay;
 @FXML
@@ -83,7 +79,6 @@ private static double[] getAverages(String proj, String lCS, String effort, Stri
 	Scanner scan = new Scanner(myFile);
 		
 	// Narrow down the data from fields chosen from the user
-<<<<<<< HEAD
 	while(scan.hasNextLine()) {
 		Data_Line dataFromFile = new Data_Line(scan.nextLine());
 		if(dataFromFile.getProject().equals(proj) || proj.equals("")) {
@@ -98,17 +93,6 @@ private static double[] getAverages(String proj, String lCS, String effort, Stri
 							}catch(Exception e) {
 								
 							}
-=======
-		while(scan.hasNextLine()) {
-			Data_Line dataFromFile = new Data_Line(scan.nextLine());
-			if(dataFromFile.getProject().equals(proj) || proj.equals("")) {
-				if(dataFromFile.getLifeCycleStep().equals(lCS) || lCS.equals("")) {
-					if(dataFromFile.getEffortCatagory().equals(effort) || effort.equals("")) {
-						if(dataFromFile.getSubSection().equals(subS) || subS.equals("")) {
-							amount++; // Update how many activities found
-							sumWeight = sumWeight + dataFromFile.getWeight(); // Update the sum of the weights
-							sumTime = sumTime + LocalDateTime.parse(dataFromFile.getTimeStart()).until(LocalDateTime.parse(dataFromFile.getTimeEnd()), ChronoUnit.SECONDS); // Update how many seconds between activities
->>>>>>> refs/remotes/origin/master
 						}
 					}
 				}
