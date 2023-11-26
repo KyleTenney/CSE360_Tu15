@@ -4,12 +4,9 @@
  * Last update: 11/19   10:00 PM
  * 
  * Description: This is a class to hold the information of a single effort activity.
-<<<<<<< HEAD
  *  This will be in charge of managing the layout of the file and the data being put in
-=======
  *  This will be used to hold and format the data to be put in the file.
  *  The fullLine is what is written in the file.
->>>>>>> refs/remotes/origin/master
  *  
  */
 package application;
