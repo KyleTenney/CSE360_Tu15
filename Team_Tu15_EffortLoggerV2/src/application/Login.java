@@ -1,12 +1,13 @@
 /*
  * Author: Kai Reataza
  * Title: Login
- * Last update: 11/1/2023     2:17 PM
+ * Last update: 11/27/2023     4:21 PM
  * 
  * Description: This controller makes sure the input is correct and then leads the user to the home page
  */
 
 package application;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,11 +17,17 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
+
 import java.io.IOException;
+import java.util.HashMap;
 public class Login {
-	
+	HashMap<String,String> logininfo = new HashMap<String,String>();
 	public Login() {
-		
+			logininfo.put("Kai", "123");
+			logininfo.put("Kyle", "123");
+			logininfo.put("Wejdan", "123");
+			logininfo.put("Mohammed", "123");
+			logininfo.put("Khalid", "123");
 	}
 	
 	@FXML
@@ -33,7 +40,7 @@ public class Login {
 	private Label wrongUNInput;
 	@FXML
 	private PasswordField password;
-	@FXML
+	@FXML 
 	private Label wrongPWInput;
 	
 	int passWord;	// declare password variable
@@ -60,8 +67,9 @@ public class Login {
 			return;
 		}
 		
+
 		
-		if (username.getText().toString().equals("EffortLogger") && passWord == 123) {		// if username and password are valid go to next scene
+		if (logininfo.containsKey(username.getText()) && logininfo.get(username.getText()).equals(password.getText())) {		// if username and password are valid go to next scene
 			wrongLogin.setText("Success!");
 			
 			m.changeScene("HomePlaceHolder.fxml");
