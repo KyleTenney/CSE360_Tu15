@@ -35,9 +35,9 @@ public class HomeController {
     }
     
     @FXML
-    void goToEditData(ActionEvent event) throws IOException {
+    void goToEditDelete(ActionEvent event) throws IOException {
     	Main m = new Main();
-    	m.changeScene("EditDataPage.fxml");
+    	m.changeScene("EditDeletePage.fxml");
     }
 }
 
