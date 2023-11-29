@@ -62,8 +62,6 @@ public class LoginController {
 			return;
 		}
 		
-
-		
 		if (logininfo.containsKey(username.getText()) && logininfo.get(username.getText()).equals(password.getText())) {		// if username and password are valid go to next scene
 			wrongLogin.setText("Success!");
 			

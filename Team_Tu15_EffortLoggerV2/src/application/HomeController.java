@@ -2,8 +2,8 @@
  * Author: Kyle Tenney
  * Title: HomeController
  * 
- * Description: This is the controller to control what the buttons do. 
- * 		For now it can choose to input data, calculate averages, or go back to log in page
+ * Description: This is the controller for HomePage
+ * 		The user can choose to Input data, Edit/Delete data, Calculate information for PlanningPoker, or logout.
  *  
  */
 

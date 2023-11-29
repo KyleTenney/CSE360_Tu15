@@ -234,14 +234,9 @@ public class EditDeleteController {
         		try {
         			deleteCurrent(); // Delete what was on the page before the user edited it
         		} catch (IOException e) {
-        			// TODO Auto-generated catch block
         			e.printStackTrace();
         		}
         	}
-        	
-        	
-        	
-        	
         	
         	displayStartTime.setEditable(false);
         	displayEndTime.setEditable(false);

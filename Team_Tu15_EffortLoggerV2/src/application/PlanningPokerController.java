@@ -4,7 +4,7 @@
 *
 * Description: This is the controller for the PlanningPokerPage. It collects what was inputed from the user
 * 	to narrow down what activitys to look at and then calculates the average weight and time of all of those.
-* 	It also displays the planning poker card that should be used.
+* 	It also displays the planning poker weight that should be used.
 */
 
 package application;
@@ -32,13 +32,12 @@ public class PlanningPokerController {
 		String lCS = lifeCycleStep.getText();
 		String effort = effortCatagory.getText();
 		String subS = subSection.getText();
-		
+		// Get the information
 		double[] information = getAverages(proj, lCS, effort, subS);
-		
+		// Display the information
 		amountOfData.setText("There was " + Math.round(information[0]) + " data inputs found");
 		averageWeightDisplay.setText("The average weight was: " + information[1]);
 		averageTimeDisplay.setText("The average time was: " + information[2] + " years, " + information[3] + " months, " + information[4] + " days, " + information[5] + " hours, " + information[6] + " minutes, and "+ information[7] + " seconds");
-		
 		cardDisplay.setText("Recomened importance is " + Math.round(information[1]));
 	}
 	
@@ -77,13 +76,12 @@ public class PlanningPokerController {
 				if(dataFromFile.getLifeCycleStep().equals(lCS) || lCS.equals("")) {
 					if(dataFromFile.getEffortCatagory().equals(effort) || effort.equals("")) {
 						if(dataFromFile.getSubSection().equals(subS) || subS.equals("")) {
-							if(dataFromFile.getWeight() != 9) {
+							if(dataFromFile.getWeight() != 9) { // Weight can't be 9 because that is for the line that only has the start time
 								amount++; // Update how many activities found
 								sumWeight = sumWeight + dataFromFile.getWeight(); // Update the sum of the weights
 								try{
 									sumTime = sumTime + LocalDateTime.parse(dataFromFile.getTimeStart()).until(LocalDateTime.parse(dataFromFile.getTimeEnd()), ChronoUnit.SECONDS); // Update how many seconds between activities
-								}catch(Exception e) {
-									
+								}catch(Exception e) {	
 								}
 							}
 						}
@@ -94,12 +92,12 @@ public class PlanningPokerController {
 		scan.close();
 		
 		try {
-				seconds = sumTime/amount;
-				averageWeight = sumWeight/amount;
+			seconds = sumTime/amount;
+			averageWeight = sumWeight/amount;
 		} catch (Exception e) {
-			System.out.println("There was no data in file");
 		}
 		
+		// Separate the seconds into each time separators
 		minutes = Math.floor(seconds/60);
 		seconds = seconds%60;
 		hours = Math.floor(minutes/60);
@@ -111,6 +109,7 @@ public class PlanningPokerController {
 		years = Math.floor(months/12);
 		months = months%12;
 		
+		// Send back all of the information
 		information[0] = amount;
 		information[1] = Math.round(averageWeight * 100.0)/100.0;
 		information[7] = Math.round(seconds * 100.0)/100.0;

@@ -2,9 +2,9 @@
  * Author: Kyle Tenney
  * Title: InputController
  * 
- * Description: This is the controller to be in charge of taking the information
- * 		from the InputPage and putting that in the file.
- *  
+ * Description: This is the controller for InputPage
+ * 		The user can start the clock when starting an activity. When the activity is over, the user fills in the fields
+ * 			and then stops the clock to submit. All fields are validated so that no bad data can be put i to the file. 
  */
 
 package application;
@@ -34,27 +34,17 @@ public class InputController {
     @FXML
     private TextField description, effortCatagory, lifeCycleStep, project, subSection, timeEnd, timeStart, weight;
 
+    // Add the data safely in the file
     @FXML
     void store(ActionEvent event) throws IOException {
     	
     	boolean isSafe = true;
     	isSafe = checkIsSafe(isSafe);
     	
-    	Main m = new Main();
     	if (isSafe) {
     		Data_Line data = new Data_Line(timeStart.getText(), timeEnd.getText(), project.getText(), lifeCycleStep.getText(), effortCatagory.getText(), subSection.getText(), description.getText(), Integer.valueOf(weight.getText()));
     	
     		data.inputInFile();
-    	}
-    	if(isSafe) {
-    		if(contIn.getText().equalsIgnoreCase("y")) {
-    			//Reset the page
-    			clearScreen(m);
-    		}
-    		else {
-    			//Go back to home
-    			m.changeScene("HomePage.fxml");
-    		}
     	}
     	
 	}
@@ -67,9 +57,9 @@ public class InputController {
     }
 
     // This function resets the screen to the current one so that it returns back new
-    private void clearScreen(Main m) throws IOException {
+    /*private void clearScreen(Main m) throws IOException {
     	m.changeScene("InputPage.fxml");
-    }
+    }*/
     
     // Make sure that all input is good and safe
     private boolean checkIsSafe(boolean isSafe) {
@@ -137,7 +127,7 @@ public class InputController {
         	subSection.clear();
     		weight.clear();
     	}
-    	//Make everything else visable
+    	//Make everything else visible
     	continueButton.setVisible(false);
     	clockButton.setVisible(true);
     	description.setVisible(true);
@@ -152,7 +142,6 @@ public class InputController {
     	desc.setVisible(true);
     	wei.setVisible(true);
     	effort.setVisible(true);
-    	
     }
     
     @FXML
@@ -162,7 +151,7 @@ public class InputController {
     	 */
     	
     	if(hasStartedLine()) {
-    		//edit line to include the new iteams
+    		//edit line to include the new items
     		
     		if(checkIsSafe(true)) {
     			//get that lines start time and delete that line
@@ -175,14 +164,14 @@ public class InputController {
         		String line = "";
         		while(scan.hasNextLine()) {
         			line = scan.nextLine();
-        			if(line.contains("~~~~~~~9~")) {
+        			if(line.contains("~~~~~~~9~")) {   // "~~~~~~~9~" will always be part of the line with only a start time
         				startTime = line.substring(0, 19);
         			}
         			else {
-        				fileWriter.write(line + "\n");
+        				fileWriter.write(line + "\n"); // If it was not the special one then write it into the new file.
         			}
         		}
-        		fileWriter.flush();
+        		fileWriter.flush(); // Make sure to write into the file before closing
         		fileWriter.close();
         		scan.close();
         		inputFile.delete();  //Delete the old file so that we can rename the new one to take its place
@@ -191,9 +180,6 @@ public class InputController {
         		Data_Line data = new Data_Line(startTime, endTime, project.getText(), lifeCycleStep.getText(), effortCatagory.getText(), subSection.getText(), description.getText(), Integer.parseInt(weight.getText()));
         		data.inputInFile();
         		updatePage(event);
-    		}
-    		else {
-    			
     		}
     		
     	}
@@ -209,16 +195,15 @@ public class InputController {
     
     private boolean hasStartedLine() throws FileNotFoundException {
     	boolean hasStarted = false;
-    	//if String contains "~~~~~~~~" then true
     	File myFile = new File("Team_Tu15_Input_Testing.txt");
     	try {
-    			myFile.createNewFile();
+    		myFile.createNewFile();
     	} catch (IOException e) {
-    		 System.out.println("An error occurred while making the file from planning poker.");
-    	 }
+    	}
     	
     	Scanner scan = new Scanner(myFile);
     	
+    	// Check all of the lines to see if any of them have the special string
 		while(scan.hasNextLine()) {
 			Data_Line dataFromFile = new Data_Line(scan.nextLine());
 			if(dataFromFile.getFullLine().contains("~~~~~~~9~")) {
@@ -229,10 +214,11 @@ public class InputController {
     	return hasStarted;
     }
     
+    // When the clock is triggered it is possible for it to have a different length than another time. 
+    // This maks sire that all of the times are of the same length so that all computations can be done nicely.
     private String getGoodTime() {
     	String str = "";
 		LocalDateTime myObj = LocalDateTime.now();
-		//input a line with just the startTime
 		boolean timeFound = false;
 		do {
     		myObj = LocalDateTime.now();
