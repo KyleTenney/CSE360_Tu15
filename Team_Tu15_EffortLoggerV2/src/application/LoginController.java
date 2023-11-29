@@ -16,9 +16,9 @@ import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 import java.io.IOException;
 import java.util.HashMap;
-public class Login {
+public class LoginController {
 	HashMap<String,String> logininfo = new HashMap<String,String>();
-	public Login() {
+	public LoginController() {
 			logininfo.put("Kai", "123");
 			logininfo.put("Kyle", "123");
 			logininfo.put("Wejdan", "123");
