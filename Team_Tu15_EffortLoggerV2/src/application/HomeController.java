@@ -31,7 +31,7 @@ public class HomeController {
     @FXML
     void goToLogIn(ActionEvent event) throws IOException {
     	Main m = new Main();
-    	m.changeScene("LoginScreen.fxml");
+    	m.changeScene("LoginPage.fxml");
     }
     
     @FXML

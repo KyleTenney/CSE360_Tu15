@@ -21,9 +21,9 @@ public class Main extends Application {
 	private static Stage stg;
 	
 	@Override
-	public void start(Stage primaryStage) throws Exception {							// Sets the stage for the login screen
+	public void start(Stage primaryStage) throws Exception {							// Sets the stage for the login page
 			stg = primaryStage;
-			Parent root = FXMLLoader.load(getClass().getResource("LoginScreen.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("LoginPage.fxml"));
 			primaryStage.setTitle("EffortLogger");
 			primaryStage.setScene(new Scene(root));
 			primaryStage.show();	
