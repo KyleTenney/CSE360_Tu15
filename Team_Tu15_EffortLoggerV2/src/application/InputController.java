@@ -55,11 +55,6 @@ public class InputController {
     	Main m = new Main();
     	m.changeScene("HomePage.fxml");
     }
-
-    // This function resets the screen to the current one so that it returns back new
-    /*private void clearScreen(Main m) throws IOException {
-    	m.changeScene("InputPage.fxml");
-    }*/
     
     // Make sure that all input is good and safe
     private boolean checkIsSafe(boolean isSafe) {
@@ -215,7 +210,7 @@ public class InputController {
     }
     
     // When the clock is triggered it is possible for it to have a different length than another time. 
-    // This maks sire that all of the times are of the same length so that all computations can be done nicely.
+    // This makes sire that all of the times are of the same length so that all computations can be done nicely.
     private String getGoodTime() {
     	String str = "";
 		LocalDateTime myObj = LocalDateTime.now();
