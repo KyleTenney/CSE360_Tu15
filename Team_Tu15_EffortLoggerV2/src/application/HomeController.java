@@ -19,7 +19,7 @@ public class HomeController {
     @FXML
     void goToInputData(ActionEvent event) throws IOException {
     	Main m = new Main();
-    	m.changeScene("Input_page.fxml");
+    	m.changeScene("InputPage.fxml");
     }
 
     @FXML

@@ -4,7 +4,7 @@
  * Last update: 11/29/2023  10:30 AM
  * 
  * Description: This is the controller to be in charge of taking the information
- * 		from the Input_page and putting that in the file.
+ * 		from the InputPage and putting that in the file.
  *  
  */
 
@@ -69,7 +69,7 @@ public class InputController {
 
     // This function resets the screen to the current one so that it returns back new
     private void clearScreen(Main m) throws IOException {
-    	m.changeScene("Input_page.fxml");
+    	m.changeScene("InputPage.fxml");
     }
     
     // Make sure that all input is good and safe
