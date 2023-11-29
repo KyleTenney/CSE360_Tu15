@@ -19,6 +19,7 @@ import java.time.LocalDateTime;
 public class Data_Line {
 	// These are the variables contained for each data input
 	private String fullLine;
+	// The times are strings instead of LocalDateTime types because Strings are easier to make sure of the length.
 	private String timeStart;   
 	private String timeEnd;     
 	private String project;
@@ -28,7 +29,7 @@ public class Data_Line {
 	private String description;
 	private int weight;
 	
-	// This constructor is for making the object all at once for testing purposes
+	// This constructor is for making the object all at once 
 	public Data_Line(String timeStart, String timeEnd, String project, String lifeCycleStep,
 					String effortCatagory, String subSection, String description, int weight) {
 		this.timeStart = timeStart;
@@ -43,7 +44,6 @@ public class Data_Line {
 	}
 	
 	// This constructor is to make the object as soon as the start button is selected 
-	// (Used in final EffortLogger V2)
 	public Data_Line(LocalDateTime timeStart) {
 		this.timeStart = timeStart.toString();
 		this.timeEnd = "";
@@ -121,7 +121,7 @@ public class Data_Line {
 		this.weight = weight;
 	}
 	
-	// When from reading the file, this will fill in the rest of the data
+	// When from reading the file, this will fill in the rest of the data from the fullString
 	private void makeDatas(String fullString) {
 		String subString = fullString;
 		int dataStep = 1;
@@ -151,17 +151,14 @@ public class Data_Line {
 			case 8:
 				this.weight = Integer.parseInt(subString.substring(0, subString.indexOf("~")));
 				break;
-			default:
-				System.out.println("Something's bad in the switch statment while parsing the string");
-				break;
 			}
 			dataStep++;
-			subString = subString.replaceFirst(subString.substring(0, subString.indexOf("~")).concat("~"), "");
+			subString = subString.replaceFirst(subString.substring(0, subString.indexOf("~")).concat("~"), ""); //This is to cut off the part that was just put in
 		}
 	}
 	
+	// Write the data in the file
 	public void inputInFile() {
-		//System.out.println("\nInputing in file: \"Team_Tu15_Input_Testing\"");
 		File myFile = new File("Team_Tu15_Input_Testing.txt");
 		try {
 		      if (myFile.createNewFile()) {
@@ -179,13 +176,22 @@ public class Data_Line {
 		      myWriter.write(this.fullLine + "\n");
 		      myWriter.flush();  //Make sure to write to the file before closing
 		      myWriter.close();
-		      //System.out.println("Successfully wrote to the file.\n");
 		    } catch (IOException e) {
 		      System.out.println("An error occurred.");
 		      e.printStackTrace();
 		    }
 	}
 	
+	public boolean equals(Data_Line x) {
+		boolean flag;
+		if(this.fullLine.equals(x.fullLine)) {
+			flag = true;
+		}
+		else {
+			flag = false;
+		}
+		return flag;
+	}
 	
 }
 

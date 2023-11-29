@@ -28,8 +28,8 @@ import javafx.scene.control.Label;
 
 public class EditDeleteController {
 
-	private LinkedList<Data_Line> lines = new LinkedList<Data_Line>();
-	private Data_Line currentData = new Data_Line("");
+	private LinkedList<Data_Line> lines = new LinkedList<Data_Line>(); // All of the lines in the file
+	private Data_Line currentData = new Data_Line(""); // Keep track of the data currently on the page
 	
 	@FXML
  	private Button searchButton, nextButton, deleteButton, editButton, submitButton;
@@ -42,7 +42,7 @@ public class EditDeleteController {
     @FXML
     private  TextField proj, subS, wei, desc, effort, lCS, start, end;
     
-    
+    // Collect all of the lines from the file into the LinkedList
     @FXML
     public void findData(ActionEvent event) throws FileNotFoundException {
     	File myFile = new File("Team_Tu15_Input_Testing.txt");
@@ -80,8 +80,9 @@ public class EditDeleteController {
     }	
     
     //Update the page so that the user can see the data and what to do
-    private  void DisplayLine(LinkedList<Data_Line> lines) {
+    private void DisplayLine(LinkedList<Data_Line> lines) {
     	if(lines.peekFirst() == null){
+    		// IF there is no more lines then reset the page like it was in the begining
     		displayStartTime.clear();
     		displayEndTime.clear();
 	    	displayProject.clear();
@@ -90,7 +91,6 @@ public class EditDeleteController {
 	    	displayDesc.clear();
 	    	displaySubS.clear();
 	    	displayWeight.clear();
-	    	
     		searchButton.setVisible(true);
     		deleteButton.setVisible(false);
     		editButton.setVisible(false);
@@ -107,7 +107,7 @@ public class EditDeleteController {
 	    	displaySubS.setText(lines.getFirst().getSubSection());
 	    	displayWeight.setText(Integer.toString(lines.getFirst().getWeight()));
 	    	currentData =  lines.getFirst();
-	    	lines.removeFirst();
+	    	lines.removeFirst(); // Remove the top line so that the new first is the next data line
 	    	
     		searchButton.setVisible(false);
     		deleteButton.setVisible(true);
@@ -127,6 +127,7 @@ public class EditDeleteController {
     	DisplayLine(lines);
     }
 
+    // This is to make sure that the user wants to delete an item 
     @FXML
     void tryDelete(ActionEvent event) {
     	onDeleteNoButton.setVisible(true);
@@ -136,7 +137,7 @@ public class EditDeleteController {
     	editButton.setVisible(false);
     }
 
-    @FXML //The user clicked on the button on accident
+    @FXML //The user did not want to delete
     void cancelDelete(ActionEvent event) {
     	onDeleteNoButton.setVisible(false);
     	onDeletePrompt.setVisible(false);
@@ -184,12 +185,10 @@ public class EditDeleteController {
     	displayWeight.setEditable(true);
     }
     
-    // Write all data lines except the target one in a new file and then rearange the file names so that it was how it was before
+    // Write all data lines except the target one in a new file and then rearrange the file names so that it was how it was before
     private void deleteCurrent() throws IOException {
     	String lineToRemove = currentData.getFullLine();
     	
-    	// Found at: https://stackoverflow.com/questions/1377279/find-a-line-in-a-file-and-remove-it //
-    	////////////
     	File inputFile = new File("Team_Tu15_Input_Testing.txt");
     	File tempFile = new File("myTempFile.txt");
     	
@@ -210,7 +209,7 @@ public class EditDeleteController {
     	reader.close();
     	writer.flush();  //Make sure it writes before we close
     	writer.close();
-    	/////////////////////
+    	
     	inputFile.delete();  //Delete the old file so that we can rename the new one to take its place
     	tempFile.renameTo(new File("Team_Tu15_Input_Testing.txt"));
     	
@@ -223,15 +222,26 @@ public class EditDeleteController {
     @FXML  // Action called from submitButton
     void saveData(ActionEvent event) {
     	if(checkIsSafe()) {
-    		Data_Line data = new Data_Line(displayStartTime.getText(), displayEndTime.getText(), displayProject.getText(), displayLCS.getText(), displayEffort.getText(), displaySubS.getText(), displayDesc.getText(), Integer.parseInt(displayWeight.getText()));
-        	data.inputInFile();
+    		// Add the data that was inputed from the user
+        	Data_Line data = new Data_Line(displayStartTime.getText(), displayEndTime.getText(), displayProject.getText(), displayLCS.getText(), displayEffort.getText(), displaySubS.getText(), displayDesc.getText(), Integer.parseInt(displayWeight.getText()));
+        	if(data.equals(currentData)) {
+        		// If the data is the same don't add it
+        		nextData(event);
+        	}
+        	else {
+        		// If different, add it and delete the previous version
+        		data.inputInFile();
+        		try {
+        			deleteCurrent(); // Delete what was on the page before the user edited it
+        		} catch (IOException e) {
+        			// TODO Auto-generated catch block
+        			e.printStackTrace();
+        		}
+        	}
         	
-        	try {
-    			deleteCurrent();
-    		} catch (IOException e) {
-    			// TODO Auto-generated catch block
-    			e.printStackTrace();
-    		}
+        	
+        	
+        	
         	
         	displayStartTime.setEditable(false);
         	displayEndTime.setEditable(false);
@@ -249,11 +259,9 @@ public class EditDeleteController {
         	fileCharErrorDisplay.setText(null);
         	weightErrorDisplay.setText(null);
     	}
-    	else {
-    		
-    	}
     }
-    	
+    
+    // Make sure that the input will be safe and if not warn the user
     private boolean checkIsSafe() {
     	timeErrorDisplay.setText(null);
     	fileCharErrorDisplay.setText(null);
@@ -266,7 +274,7 @@ public class EditDeleteController {
     	}catch(Exception e){
     		
     	}
-    	if(sumTime > 0) {
+    	if(sumTime > 0) { // Make sure that the end time is after the start time
     	}
     	else {
     		isSafe = false;
