@@ -2,8 +2,8 @@
 
 <!-- Author: Kyle Tenney -->
 <!-- Title: PlanningPokerPage -->
-<!-- Description: This page is the page where the user can input information to narrow down what activitys that they want the average -->
-<!-- weights and time for. It also shows what poker card should be played. -->
+<!-- Description: This page is the page where the user can input information to narrow down what activities -->
+<!--	 that they want the average weights and time for. It also shows what the recommended weight should be used. -->
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>

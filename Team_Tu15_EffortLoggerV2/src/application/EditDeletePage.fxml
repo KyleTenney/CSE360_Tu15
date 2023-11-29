@@ -4,6 +4,7 @@
 <!-- Title: EditDeletePage -->
 <!-- Description: This page is the screen in order to see the data and to edit or delete it. -->
 <!-- 	You can narrow down what data sets you want by filtering. After ward click search and next to see the data. -->
+<!--    All data will be verified before being put in the file. -->
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>

@@ -2,8 +2,9 @@
 
 <!-- Author: Kyle Tenney -->
 <!-- Title: InputPage -->
-<!-- Description: This page is the page where you can put in the data to be saved -->
-<!-- If you want to put in multiple then make sure the continue is a y. if not then you will be sent HOME -->
+<!-- Description: This page is the page where you can put in the data to be saved. -->
+<!-- 	When the activity starts, start the clock. When the activity is over the user puts in the data -->
+<!--	and then stops the clock to submit. All input's will be verified before puting it in the file. -->
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>

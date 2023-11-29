@@ -2,7 +2,9 @@
  * Author: Kai Reataza
  * Title: LoginController
  * 
- * Description: This controller makes sure the input is correct and then leads the user to the home page
+ * Description: This controller makes sure the input is correct and then leads the user to the home page.
+ * 		Currently the possible user names are the first names of the people in our group but can be easily changed.
+ * 		The password for everyone is 123.
  */
 
 package application;

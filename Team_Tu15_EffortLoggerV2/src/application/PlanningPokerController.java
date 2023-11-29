@@ -3,7 +3,7 @@
 * Title: PlanningPokerCrontroller
 *
 * Description: This is the controller for the PlanningPokerPage. It collects what was inputed from the user
-* 	to narrow down what activitys to look at and then calculates the average weight and time of all of those.
+* 	to narrow down what activities to look at and then calculates the average weight and time of all of those.
 * 	It also displays the planning poker weight that should be used.
 */
 
