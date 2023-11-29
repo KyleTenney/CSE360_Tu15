@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- Author: Kyle Tenney -->
-<!-- Title: HomePlaceHolder -->
+<!-- Title: HomePage -->
 <!-- Last update: 11/29/2023   10:32 AM-->
 <!-- Description: This page is the home page after signing in. -->
 <!-- 	You can select diffrent buttons to input data, go to planning poker, or sign out. -->
@@ -12,7 +12,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HomeController">
 	<children>
-		<Label layoutX="218.0" layoutY="25.0" text="This is a placeholder for HOME" />
+		<Label layoutX="218.0" layoutY="25.0" text="This is the HOME page" />
 		<Button layoutX="264.0" layoutY="121.0" mnemonicParsing="false" onAction="#goToInputData" text="Input Data" />
 		<Button layoutX="194.0" layoutY="306.0" mnemonicParsing="false" onAction="#goToPlanningPokerThing" text="Calculate averages for PlanningPoker" />
 		<Button layoutX="487.0" layoutY="21.0" mnemonicParsing="false" onAction="#goToLogIn" text="Log Out" />

@@ -54,7 +54,7 @@ public class InputController {
     		}
     		else {
     			//Go back to home
-    			m.changeScene("homePlaceHolder.fxml");
+    			m.changeScene("HomePage.fxml");
     		}
     	}
     	
@@ -64,7 +64,7 @@ public class InputController {
     @FXML
     void goToHome(ActionEvent event) throws IOException {
     	Main m = new Main();
-    	m.changeScene("HomePlaceHolder.fxml");
+    	m.changeScene("HomePage.fxml");
     }
 
     // This function resets the screen to the current one so that it returns back new

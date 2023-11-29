@@ -120,7 +120,7 @@ public class EditDeleteController {
     @FXML
     void goToHome(ActionEvent event) throws IOException {
     	Main m = new Main();
-    	m.changeScene("HomePlaceHolder.fxml");
+    	m.changeScene("HomePage.fxml");
     }
 
     @FXML

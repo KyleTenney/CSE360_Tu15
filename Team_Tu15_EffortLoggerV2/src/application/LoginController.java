@@ -1,6 +1,6 @@
 /*
  * Author: Kai Reataza
- * Title: Login
+ * Title: LoginController
  * Last update: 11/29/2023    10:18 AM
  * 
  * Description: This controller makes sure the input is correct and then leads the user to the home page
@@ -68,7 +68,7 @@ public class LoginController {
 		if (logininfo.containsKey(username.getText()) && logininfo.get(username.getText()).equals(password.getText())) {		// if username and password are valid go to next scene
 			wrongLogin.setText("Success!");
 			
-			m.changeScene("HomePlaceHolder.fxml");
+			m.changeScene("HomePage.fxml");
 			
 		}
 		

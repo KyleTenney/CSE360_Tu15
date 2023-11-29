@@ -46,7 +46,7 @@ public class PlanningPokerController {
 	@FXML
 	void goToHome(ActionEvent event) throws IOException {
 		Main m = new Main();
-		m.changeScene("HomePlaceHolder.fxml");
+		m.changeScene("HomePage.fxml");
 	}
 	
 	private static double[] getAverages(String proj, String lCS, String effort, String subS) throws FileNotFoundException {
