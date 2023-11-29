@@ -1,7 +1,6 @@
 /*
  * Author: Kyle Tenney
  * Title: Data_Line
- * Last update: 11/19/2023   10:28 AM
  * 
  * Description: This is a class to hold the information of a single effort activity.
  *  This will be in charge of managing the layout of the file and the data being put in

@@ -1,7 +1,6 @@
 /*
 * Author: Kyle Tenney
 * Title: PlanningPokerCrontroller
-* Last update: 11/29/2023   10:31 AM
 *
 * Description: This is the controller for the PlanningPokerPage. It collects what was inputed from the user
 * 	to narrow down what activitys to look at and then calculates the average weight and time of all of those.
@@ -36,7 +35,7 @@ public class PlanningPokerController {
 		
 		double[] information = getAverages(proj, lCS, effort, subS);
 		
-		amountOfData.setText("There was " + information[0] + " data inputs found");
+		amountOfData.setText("There was " + Math.round(information[0]) + " data inputs found");
 		averageWeightDisplay.setText("The average weight was: " + information[1]);
 		averageTimeDisplay.setText("The average time was: " + information[2] + " years, " + information[3] + " months, " + information[4] + " days, " + information[5] + " hours, " + information[6] + " minutes, and "+ information[7] + " seconds");
 		

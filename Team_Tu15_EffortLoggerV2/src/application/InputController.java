@@ -1,7 +1,6 @@
 /*
  * Author: Kyle Tenney
- * Title: Input
- * Last update: 11/29/2023  10:30 AM
+ * Title: InputController
  * 
  * Description: This is the controller to be in charge of taking the information
  * 		from the InputPage and putting that in the file.

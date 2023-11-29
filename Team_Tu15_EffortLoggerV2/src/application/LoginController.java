@@ -1,7 +1,6 @@
 /*
  * Author: Kai Reataza
  * Title: LoginController
- * Last update: 11/29/2023    10:18 AM
  * 
  * Description: This controller makes sure the input is correct and then leads the user to the home page
  */

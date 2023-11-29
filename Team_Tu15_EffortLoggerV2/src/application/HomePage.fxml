@@ -2,20 +2,23 @@
 
 <!-- Author: Kyle Tenney -->
 <!-- Title: HomePage -->
-<!-- Last update: 11/29/2023   10:32 AM-->
 <!-- Description: This page is the home page after signing in. -->
 <!-- 	You can select diffrent buttons to input data, go to planning poker, or sign out. -->
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HomeController">
 	<children>
-		<Label layoutX="218.0" layoutY="25.0" text="This is the HOME page" />
-		<Button layoutX="264.0" layoutY="121.0" mnemonicParsing="false" onAction="#goToInputData" text="Input Data" />
-		<Button layoutX="194.0" layoutY="306.0" mnemonicParsing="false" onAction="#goToPlanningPokerThing" text="Calculate averages for PlanningPoker" />
+		<Label layoutX="260.0" layoutY="27.0" text="HOME">
+         <font>
+            <Font size="28.0" />
+         </font></Label>
+		<Button layoutX="264.0" layoutY="92.0" mnemonicParsing="false" onAction="#goToInputData" text="Input Data" />
+		<Button layoutX="194.0" layoutY="200.0" mnemonicParsing="false" onAction="#goToPlanningPoker" text="Calculate averages for PlanningPoker" />
 		<Button layoutX="487.0" layoutY="21.0" mnemonicParsing="false" onAction="#goToLogIn" text="Log Out" />
-		<Button layoutX="243.0" layoutY="187.0" mnemonicParsing="false" onAction="#goToEditDelete" text="Edit or delete data" />
+		<Button layoutX="243.0" layoutY="143.0" mnemonicParsing="false" onAction="#goToEditDelete" text="Edit or delete data" />
 	</children>
 </AnchorPane>

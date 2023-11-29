@@ -1,7 +1,6 @@
 /*
 * Author: Kyle Tenney
 * Title: EditDeleteController
-* Last update: 11/29/2023  10:29 AM
 *
 * Description: This is the controller for the EditDeletePage. This allows the user to edit or delete data.
 * 	First filter to narrow down what you need to do and then change the values or delete them.

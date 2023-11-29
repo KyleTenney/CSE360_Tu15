@@ -2,7 +2,6 @@
 
 <!-- Author: Kyle Tenney -->
 <!-- Title: InputPage -->
-<!-- Last update: 11/29/2023  10:33 AM -->
 <!-- Description: This page is the page where you can put in the data to be saved -->
 <!-- If you want to put in multiple then make sure the continue is a y. if not then you will be sent HOME -->
 
@@ -10,6 +9,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.InputController">
 	<children>
@@ -32,5 +32,10 @@
 		<Label fx:id="fileCharErrorDisplay" layoutX="349.0" layoutY="152.0" prefHeight="70.0" prefWidth="206.0" />
 		<Button fx:id="clockButton" layoutX="36.0" layoutY="37.0" mnemonicParsing="false" onAction="#triggerClock" text="Start Clock" visible="false" />
 		<Button fx:id="continueButton" layoutX="230.0" layoutY="174.0" mnemonicParsing="false" onAction="#updatePage" text="Continue for data entry" />
+      <Label layoutX="235.0" layoutY="17.0" text="Input Data">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
 	</children>
 </AnchorPane>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!-- Author: Kyle Tenney -->
 <!-- Title: PlanningPokerPage -->
-<!-- Last update: 11/29/2023 10:33 AM -->
 <!-- Description: This page is the page where the user can input information to narrow down what activitys that they want the average -->
 <!-- weights and time for. It also shows what poker card should be played. -->
 
@@ -9,11 +9,15 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PlanningPokerController">
 	<children>
 		<Button layoutX="506.0" layoutY="34.0" mnemonicParsing="false" onAction="#goToHome" text="HOME" />
-		<Label layoutX="272.0" layoutY="38.0" text="Planning Poker" />
+		<Label layoutX="220.0" layoutY="27.0" text="Planning Poker">
+         <font>
+            <Font size="28.0" />
+         </font></Label>
 		<Label layoutX="35.0" layoutY="71.0" text="Sort by project" />
 		<Label layoutX="18.0" layoutY="101.0" text="Sort by life cycle step" />
 		<Label layoutX="14.0" layoutY="130.0" text="Sort by effort catagory" />
@@ -29,6 +33,3 @@
 		<Label fx:id="amountOfData" layoutX="60.0" layoutY="252.0" />
 	</children>
 </AnchorPane>
-
-
-
