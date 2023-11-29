@@ -1,7 +1,7 @@
 /*
  * Author: Kai Reataza
- * Title: Login
- * Last update: 11/4/2023   5:10 PM
+ * Title: Main
+ * Last update: 11/29/2023   10:31 AM
  * 
  * Description: This main controller starts the user on the log in page and holds a method to change scenes 
  */

@@ -1,7 +1,7 @@
 /*
  * Author: Kyle Tenney
  * Title: Data_Line
- * Last update: 11/19   10:00 PM
+ * Last update: 11/19/2023   10:28 AM
  * 
  * Description: This is a class to hold the information of a single effort activity.
  *  This will be in charge of managing the layout of the file and the data being put in
@@ -9,6 +9,7 @@
  *  The fullLine is what is written in the file.
  *  
  */
+
 package application;
 
 import java.io.File;
@@ -19,8 +20,8 @@ import java.time.LocalDateTime;
 public class Data_Line {
 	// These are the variables contained for each data input
 	private String fullLine;
-	private String timeStart;   // Later this will be a LocalDateTime
-	private String timeEnd;     // Later this will be a LocalDateTime
+	private String timeStart;   
+	private String timeEnd;     
 	private String project;
 	private String lifeCycleStep;
 	private String effortCatagory;

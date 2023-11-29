@@ -1,7 +1,7 @@
 /*
 * Author: Kyle Tenney
 * Title: EditDeleteController
-* Last update: 11/20/2023  9:00 PM
+* Last update: 11/29/2023  10:29 AM
 *
 * Description: This is the controller for the EditDeletePage. This allows the user to edit or delete data.
 * 	First filter to narrow down what you need to do and then change the values or delete them.
@@ -188,7 +188,6 @@ public class EditDeleteController {
     // Write all data lines except the target one in a new file and then rearange the file names so that it was how it was before
     private void deleteCurrent() throws IOException {
     	String lineToRemove = currentData.getFullLine();
-    	
     	
     	// Found at: https://stackoverflow.com/questions/1377279/find-a-line-in-a-file-and-remove-it //
     	////////////

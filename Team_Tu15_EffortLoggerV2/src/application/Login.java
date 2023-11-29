@@ -1,7 +1,7 @@
 /*
  * Author: Kai Reataza
  * Title: Login
- * Last update: 11/27/2023     4:21 PM
+ * Last update: 11/29/2023    10:18 AM
  * 
  * Description: This controller makes sure the input is correct and then leads the user to the home page
  */
@@ -9,15 +9,11 @@
 package application;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import javafx.event.ActionEvent;
-
 import java.io.IOException;
 import java.util.HashMap;
 public class Login {

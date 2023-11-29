@@ -1,7 +1,7 @@
 /*
  * Author: Kyle Tenney
  * Title: HomeController
- * Last update: 11/4/2023   5:12 PM
+ * Last update: 11/29/2023   10:30 AM
  * 
  * Description: This is the controller to control what the buttons do. 
  * 		For now it can choose to input data, calculate averages, or go back to log in page
@@ -11,7 +11,6 @@
 package application;
 
 import java.io.IOException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
