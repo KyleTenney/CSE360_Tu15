@@ -2,7 +2,7 @@
 EffortLoggerV2 Project
 
 This holds the project with all of its files so that we can share with graders and eachother.
-The code is in the master branch.
+The code is in the main branch.
 
 In order to run the code make sure that the build path includes your JavaFX file and the run configuration starts with main.
 
