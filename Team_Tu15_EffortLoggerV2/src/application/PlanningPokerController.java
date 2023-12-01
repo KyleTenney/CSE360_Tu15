@@ -60,7 +60,7 @@ public class PlanningPokerController {
 		double sumTime = 0;
 		int sumWeight = 0;
 		
-		File myFile = new File("Team_Tu15_Input_Testing.txt");
+		File myFile = new File("Team_Tu15_Data.txt");
 		try {
 				myFile.createNewFile();
 		} catch (IOException e) {
