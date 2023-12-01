@@ -45,7 +45,7 @@ public class EditDeleteController {
     // Collect all of the lines from the file into the LinkedList
     @FXML
     public void findData(ActionEvent event) throws FileNotFoundException {
-    	File myFile = new File("Team_Tu15_Input_Testing.txt");
+    	File myFile = new File("Team_Tu15_Data.txt");
     	try {
     			myFile.createNewFile();
     	} catch (IOException e) {
@@ -189,7 +189,7 @@ public class EditDeleteController {
     private void deleteCurrent() throws IOException {
     	String lineToRemove = currentData.getFullLine();
     	
-    	File inputFile = new File("Team_Tu15_Input_Testing.txt");
+    	File inputFile = new File("Team_Tu15_Data.txt");
     	File tempFile = new File("myTempFile.txt");
     	
     	FileReader fileReader = new FileReader(inputFile);
@@ -211,7 +211,7 @@ public class EditDeleteController {
     	writer.close();
     	
     	inputFile.delete();  //Delete the old file so that we can rename the new one to take its place
-    	tempFile.renameTo(new File("Team_Tu15_Input_Testing.txt"));
+    	tempFile.renameTo(new File("Team_Tu15_Data.txt"));
     	
     	// Clear the list of data that was being tracked so that we can now start over
     	lines = new LinkedList<Data_Line>();
