@@ -152,7 +152,7 @@ public class InputController {
     			//get that lines start time and delete that line
         		String startTime = "";
         		String endTime = getGoodTime();
-        		File inputFile = new File("Team_Tu15_Input_Testing.txt");
+        		File inputFile = new File("Team_Tu15_Data.txt");
         		File tempFile = new File("myTempFile.txt");
             	FileWriter fileWriter = new FileWriter(tempFile, true);
         		Scanner scan = new Scanner(inputFile);
@@ -170,7 +170,7 @@ public class InputController {
         		fileWriter.close();
         		scan.close();
         		inputFile.delete();  //Delete the old file so that we can rename the new one to take its place
-            	tempFile.renameTo(new File("Team_Tu15_Input_Testing.txt"));
+            	tempFile.renameTo(new File("Team_Tu15_Data.txt"));
         		
         		Data_Line data = new Data_Line(startTime, endTime, project.getText(), lifeCycleStep.getText(), effortCatagory.getText(), subSection.getText(), description.getText(), Integer.parseInt(weight.getText()));
         		data.inputInFile();
@@ -190,7 +190,7 @@ public class InputController {
     
     private boolean hasStartedLine() throws FileNotFoundException {
     	boolean hasStarted = false;
-    	File myFile = new File("Team_Tu15_Input_Testing.txt");
+    	File myFile = new File("Team_Tu15_Data.txt");
     	try {
     		myFile.createNewFile();
     	} catch (IOException e) {
