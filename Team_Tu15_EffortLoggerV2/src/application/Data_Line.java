@@ -159,7 +159,7 @@ public class Data_Line {
 	
 	// Write the data in the file
 	public void inputInFile() {
-		File myFile = new File("Team_Tu15_Input_Testing.txt");
+		File myFile = new File("Team_Tu15_Data.txt");
 		try {
 		      if (myFile.createNewFile()) {
 		        //System.out.println("File created: " + myFile.getName());
@@ -172,7 +172,7 @@ public class Data_Line {
 		    }
 		
 		try {
-			  FileWriter myWriter = new FileWriter("Team_Tu15_Input_Testing.txt", true);
+			  FileWriter myWriter = new FileWriter("Team_Tu15_Data.txt", true);
 		      myWriter.write(this.fullLine + "\n");
 		      myWriter.flush();  //Make sure to write to the file before closing
 		      myWriter.close();
